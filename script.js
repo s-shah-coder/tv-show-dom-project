@@ -4,6 +4,25 @@ function setup() {
   makePageForEpisodes(allEpisodes);
 }
 
+const filter = getAllEpisodes();
+const serach = document.creatElelement("input");
+hearder.appendChild(serach);
+rootElem.appendCHild(header);
+
+header.className = "header";
+serach.className ="searchBar";
+
+function searchBar() {
+  const res = search.value;
+
+  const result = filter.filter((movie) => {
+    movie.name.includes(res) || movie.summary.includes(res);
+  });
+  return console.log(result);
+}
+
+search.addEventListener("keyup", searchBar);
+
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
   // rootElem.textContent = `Got ${episodeList.length} episode(s)`;
