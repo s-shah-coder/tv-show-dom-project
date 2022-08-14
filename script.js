@@ -7,13 +7,13 @@ function setup() {
 const filter = getAllEpisodes();
 const rootElem = document.getElementById("root");
 const header = document.createElement("div");
-const serach = document.creatElelement("input");
-grid.className = "box";
-header.appendChild(serach);
+const search = document.creatElelement("input");
+grid.className = "eachBox";
+header.appendChild(search);
 rootElem.appendCHild(header);
 
 header.className = "header";
-serach.className ="searchBar";
+search.className ="searchBar";
 
 function searchBar() {
   const res = search.value;
