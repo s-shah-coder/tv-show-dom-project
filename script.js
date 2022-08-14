@@ -9,7 +9,7 @@ const rootElem = document.getElementById("root");
 const header = document.createElement("div");
 const serach = document.creatElelement("input");
 grid.className = "box";
-hearder.appendChild(serach);
+header.appendChild(serach);
 rootElem.appendCHild(header);
 
 header.className = "header";
