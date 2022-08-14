@@ -4,24 +4,27 @@ function setup() {
   makePageForEpisodes(allEpisodes);
 }
 
-// const filter = getAllEpisodes();
-// const serach = document.creatElelement("input");
-// hearder.appendChild(serach);
-// rootElem.appendCHild(header);
+const filter = getAllEpisodes();
+const rootElem = document.getElementById("root");
+const header = document.createElement("div");
+const serach = document.creatElelement("input");
+grid.className = "box";
+hearder.appendChild(serach);
+rootElem.appendCHild(header);
 
-// header.className = "header";
-// serach.className ="searchBar";
+header.className = "header";
+serach.className ="searchBar";
 
-// function searchBar() {
-//   const res = search.value;
+function searchBar() {
+  const res = search.value;
 
-//   const result = filter.filter((movie) => {
-//     movie.name.includes(res) || movie.summary.includes(res);
-//   });
-//   return console.log(result);
-// }
+  const result = filter.filter((movie) => {
+    movie.name.includes(res) || movie.summary.includes(res);
+  });
+  return console.log(result);
+}
 
-// search.addEventListener("keyup", searchBar);
+search.addEventListener("keyup", searchBar);
 
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
