@@ -7,3 +7,8 @@ const episodeDisplayCount = document.getElementById("episodeDisplayCount");
 const filteringDiv = document.getElementById("filtering-text");
 const showLiveSearch = document.getElementById("showLiveSearch");
 const showDisplayCount = document.getElementById("showDisplayCount");
+
+// Get all episodes
+let allEpisodes = getAllEpisodes();
+let allShows = getAllShows().sort((a, b) => a.name.localeCompare(b.name));
+let oneShow = getOneShow();
