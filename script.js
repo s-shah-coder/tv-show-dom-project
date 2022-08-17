@@ -28,11 +28,11 @@ function output() {
 }
 
 function makePageForEpisodes(episodeList) {
-  // const rootElem = document.getElementById("root");
-  // // rootElem.textContent = `Got ${episodeList.length} episode(s)`;
-  // const eachEpisode = document.createElement("div");
+  const rootElem = document.getElementById("root");
+  // rootElem.textContent = `Got ${episodeList.length} episode(s)`;
+  const eachEpisode = document.createElement("div");
 
-  // eachEpisode.className = "eachBox";
+  eachEpisode.className = "eachBox";
 
   episodeList.map((element) => {
     const show = document.createElement("div");
