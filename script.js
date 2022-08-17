@@ -4,43 +4,41 @@ function setup() {
   makePageForEpisodes(allEpisodes);
 }
 
-// const filter = getAllEpisodes();
-// const rootElem = document.getElementById("root");
-// const header = document.createElement("div");
-// const search = document.creatElelement("input");
-// grid.className = "eachBox";
-// header.appendChild(search);
-// rootElem.appendChild(header);
+const filteredShows = getAllEpisodes();
+const rootElem = document.getElementById("root");
+const header = document.createElement("div");
+let search = document.createElement("input");
+const grid = document.createElement("div");
+grid.className = "eachBox";
+header.appendChild(search);
+rootElem.appendChild(header);
 
-// header.className = "header";
-// search.className ="searchBar";
+header.className = "header";
+search.className = "search";
 
-// function searchBar() {
-//   const res = search.value;
+function output() {
+  search.addEventListener("keyup", (e) => {
+    const res = e.target.value;
+    const filtered = filteredShows.filter((movie) => {
+      return movie.name.includes(res) || movie.summary.includes(res);
+    });
 
-//   const result = filter.filter((movie) => {
-//     movie.name.includes(res) || movie.summary.includes(res);
-//   });
-//   return console.log(result);
-// }
-
-// search.addEventListener("keyup", searchBar);
-
-
+    return filtered;
+  });
+}
 
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
   // rootElem.textContent = `Got ${episodeList.length} episode(s)`;
   const eachEpisode = document.createElement("div");
 
-  eachEpisode.className = "eachBox"
+  eachEpisode.className = "eachBox";
 
   episodeList.map((element) => {
-    
-    const show = document.createElement("div")
+    const show = document.createElement("div");
     const h3 = document.createElement("h3");
     const img = document.createElement("img");
-    const episodeInfo = document.createElement("p")
+    const episodeInfo = document.createElement("p");
 
     // eachEpisode.className = "eachBox"
 
