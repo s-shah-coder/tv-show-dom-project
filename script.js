@@ -18,3 +18,19 @@ function padZero(num) {
   if (num < 10) return `0${num}`;
   else return num;
 }
+
+// Creates an episode card and appends it to the card container
+function addEpisode(episode) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = `
+                      <div class="name-div">
+                        <h3>${episode.name} - S${padZero(
+    episode.season
+  )}E${padZero(episode.number)}</h3>
+                      </div>
+                      <img src="${episode.image.medium}" alt="">
+                      ${episode.summary}
+                   `;
+  cardContainerElem.appendChild(card);
+}
