@@ -34,3 +34,9 @@ function addEpisode(episode) {
                    `;
   cardContainerElem.appendChild(card);
 }
+
+//Function to check image
+function checkForImage(showImage) {
+  if (showImage === null) return "";
+  else return showImage;
+}
