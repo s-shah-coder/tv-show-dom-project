@@ -12,3 +12,9 @@ const showDisplayCount = document.getElementById("showDisplayCount");
 let allEpisodes = getAllEpisodes();
 let allShows = getAllShows().sort((a, b) => a.name.localeCompare(b.name));
 let oneShow = getOneShow();
+
+//Displays episode number with padded zeros
+function padZero(num) {
+  if (num < 10) return `0${num}`;
+  else return num;
+}
