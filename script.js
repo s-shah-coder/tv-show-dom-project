@@ -40,3 +40,60 @@ function checkForImage(showImage) {
   if (showImage === null) return "";
   else return showImage;
 }
+
+// Creates an show card and appends it to the card container
+function addShow(show) {
+  const showCard = document.createElement("div");
+  showCard.classList.add("show-card");
+  showCard.setAttribute("id", `${show.name}`);
+  showCard.innerHTML = `
+                        <div class="show-name-div">
+                          <h1>${show.name}</h1>
+                        </div>         
+                        <img src="${checkForImage(
+                          show.image.medium
+                        )}" alt=""></img>
+                        <div class="summary-div">
+                          ${show.summary}
+                        </div>
+                        <div class="show-info-div">
+                          <ul>
+                            <li><strong>Rated</strong>: ${
+                              show.rating.average
+                            }</li>
+                            <li><strong>Genres</strong>: ${show.genres.join(
+                              " | "
+                            )}</li>
+                            <li><strong>Status</strong>: ${show.status}</li>
+                            <li><strong>Runtime</strong>: ${show.runtime}</li>
+                          </ul>
+                        </div>
+                   `;
+  showCard.addEventListener("click", (e) => {
+    selectSearch.classList.remove("on-show-hide");
+    liveSearch.classList.remove("on-show-hide");
+    episodeDisplayCount.classList.remove("on-show-hide");
+
+    filteringDiv.classList.add("on-episode-hide");
+    showLiveSearch.classList.add("on-episode-hide");
+    showDisplayCount.classList.add("on-episode-hide");
+
+    let selectedShow = allShows.filter(
+      (show) => show.name === e.currentTarget.id
+    );
+    let selectedShowId = selectedShow[0].id;
+
+    fetchEpisodes(selectedShowId);
+    showSearch.value = e.currentTarget.id;
+  });
+  cardContainerElem.appendChild(showCard);
+}
+
+//Function to display all shows
+function displayAllShows() {
+  cardContainerElem.innerHTML = "";
+  allShows.forEach((show) => addShow(show));
+  let showListLength = allShows.length;
+  console.log(showListLength);
+  showDisplayCount.textContent = `Found ${showListLength} shows`;
+}
