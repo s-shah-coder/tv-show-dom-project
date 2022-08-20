@@ -97,3 +97,32 @@ function displayAllShows() {
   console.log(showListLength);
   showDisplayCount.textContent = `Found ${showListLength} shows`;
 }
+
+//Function to add every show to showSearch
+function addShowsToShowList(showList) {
+  showSearch.innerHTML = `<option value="all">All Shows</option>`;
+  showList.forEach((show) => {
+    const option = document.createElement("option");
+    option.value = `${show.name}`;
+    option.innerText = `${show.name}`;
+    showSearch.appendChild(option);
+  });
+  console.log(showList);
+}
+
+//Function that displays every episode
+function displayAllEpisodes(allEpisodes) {
+  cardContainerElem.innerHTML = "";
+  allEpisodes.forEach((episode) => addEpisode(episode));
+  selectSearch.innerHTML = `<option value="all">All</option>`;
+  allEpisodes.forEach((episode) => {
+    const option = document.createElement("option");
+    option.value = `${episode.name}`;
+    option.innerText = `S${padZero(episode.season)}E${padZero(
+      episode.number
+    )} - ${episode.name}`;
+    selectSearch.appendChild(option);
+  });
+  let count = allEpisodes.length;
+  episodeDisplayCount.innerHTML = `Displaying ${count}/${allEpisodes.length} episodes`;
+}
