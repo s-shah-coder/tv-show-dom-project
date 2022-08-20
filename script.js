@@ -127,3 +127,15 @@ function displayAllEpisodes(allEpisodes) {
   episodeDisplayCount.innerHTML = `Displaying ${count}/${allEpisodes.length} episodes`;
 }
 
+//Fetch Function
+function fetchEpisodes(id) {
+  //Fetch
+  fetch(`https://api.tvmaze.com/shows/${id}/episodes`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("made an api call");
+      allEpisodes = data;
+      displayAllEpisodes(allEpisodes);
+    })
+    .catch((error) => console.log(error));
+}
