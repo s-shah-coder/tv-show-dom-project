@@ -60,3 +60,42 @@ body {
   align-items: center;
   opacity: 0.87;
 }
+
+/* Episode Cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 3rem;
+}
+
+.card {
+  background-color: var(--grey1);
+  text-align: center;
+  box-shadow: -1px -1px 1px 0.8px var(--white-shadow), 1px 1px 1px 1px black;
+  border-radius: 5px;
+}
+
+.card .name-div {
+  padding: 2rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--grey1);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+}
+
+.card img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.card p {
+  padding: 2rem;
+  opacity: 0.87;
+  font-size: 0.8rem;
+}
