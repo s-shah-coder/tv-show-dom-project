@@ -22,3 +22,12 @@ body {
 #main {
   padding: 3rem;
 }
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.container > * {
+  padding-top: 3rem;
+}
