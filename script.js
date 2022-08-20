@@ -175,3 +175,51 @@ selectSearch.addEventListener("change", (e) => {
     episodeDisplayCount.innerHTML = `Displaying ${count}/${allEpisodes.length} episodes`;
   }
 });
+
+//Live Search event listener for shows
+showLiveSearch.addEventListener("input", (e) => {
+  let regex = new RegExp(e.currentTarget.value, "gi");
+  console.log(regex);
+
+  cardContainerElem.innerHTML = "";
+  let filteredShows = allShows.filter(
+    (show) => regex.test(show.name) || regex.test(show.summary)
+  );
+  filteredShows.forEach((show) => addShow(show));
+  let count = filteredShows.length;
+  showDisplayCount.innerHTML = `Found ${count} shows`;
+  addShowsToShowList(filteredShows);
+});
+
+//EventListener that displays episode list when showSearch has input
+showSearch.addEventListener("change", (e) => {
+  if (e.currentTarget.value == "all") {
+    selectSearch.classList.add("on-show-hide");
+    liveSearch.classList.add("on-show-hide");
+    episodeDisplayCount.classList.add("on-show-hide");
+
+    filteringDiv.classList.remove("on-episode-hide");
+    showLiveSearch.classList.remove("on-episode-hide");
+    showDisplayCount.classList.remove("on-episode-hide");
+
+    displayAllShows(allShows);
+  } else {
+    selectSearch.classList.remove("on-show-hide");
+    liveSearch.classList.remove("on-show-hide");
+    episodeDisplayCount.classList.remove("on-show-hide");
+
+    filteringDiv.classList.add("on-episode-hide");
+    showLiveSearch.classList.add("on-episode-hide");
+    showDisplayCount.classList.add("on-episode-hide");
+
+    let selectedShow = allShows.filter(
+      (show) => show.name === e.currentTarget.value
+    );
+    let selectedShowId = selectedShow[0].id;
+
+    fetchEpisodes(selectedShowId);
+  }
+});
+
+addShowsToShowList(allShows);
+displayAllShows(allShows);
