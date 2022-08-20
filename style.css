@@ -99,3 +99,16 @@ body {
   opacity: 0.87;
   font-size: 0.8rem;
 }
+
+/* Show Cards */
+.show-card {
+  grid-column: 1/4;
+  background-color: var(--grey1);
+  text-align: center;
+  box-shadow: -1px -1px 1px 0.8px var(--white-shadow), 1px 1px 1px 1px black;
+  border-radius: 5px;
+
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.3fr;
+  gap: 1rem;
+}
