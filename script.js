@@ -126,3 +126,4 @@ function displayAllEpisodes(allEpisodes) {
   let count = allEpisodes.length;
   episodeDisplayCount.innerHTML = `Displaying ${count}/${allEpisodes.length} episodes`;
 }
+
